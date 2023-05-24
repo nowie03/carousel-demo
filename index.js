@@ -2,7 +2,6 @@ const container=document.querySelector('.carousel-slide')
 const pages=document.querySelectorAll('.page');
 let counter=0;
 const size=pages[0].clientWidth;
-console.log(size)
 const next=document.getElementById('next');
 const prev=document.getElementById('prev');
 const colorPickers=document.querySelectorAll('.color-choice');
@@ -15,16 +14,19 @@ colorPickers.forEach(picker=>picker.addEventListener('change',(event)=>{
 }))
 
 next.addEventListener('click',(event)=>{
-    if(counter>=pages.length)return;
+    if(counter>=2)return;
     counter++;
     container.style.transform=`translateX(${-size*counter}px)`;
+    console.log(counter)
 
 })
 
 prev.addEventListener('click',(event)=>{
-    console.log(size*counter)
+    if(counter<=0)return;
     counter--;
     container.style.transform=`translateX(${-size*counter}px)`;
+    console.log(counter)
+
 
 })
 
